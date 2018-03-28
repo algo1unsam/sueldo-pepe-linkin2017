@@ -1,0 +1,30 @@
+import sueldo.*
+import persona.*
+import categorias.*
+import bonoXresultados.*
+
+
+test "Los dias que falto pepe es 1"{
+	pepe.diasFaltantes(1)
+	assert.equals(1,pepe.faltasDiarias())
+}
+
+
+test "Pepe falto 1 dia entonces su bono por presentismo es de 50$"{
+	pepe.diasFaltantes(1)
+	sueldo.calcularBonoXPresentismo(pepe)
+	assert.equals(50,sueldo.bonoXPresentismos())
+}
+
+test"Se le asigna el bono fijo entonces el bono por resultados de pepe es 80$"{
+	pepe.asignarBonoXresultado(bonoFijo)
+	assert.equals(80,pepe.bonoXResultados())
+}
+
+test"pepe con la categoria gerente, el bono por resultado es fijo, falto 1 dia entonces el sueldo de pepe es 1130$"{
+	pepe.asignarCategoria(gerente)
+	pepe.asignarBonoXresultado(bonoFijo)
+	pepe.diasFaltantes(1)
+	sueldo.calcularBonoXPresentismo(pepe)
+	assert.equals(1130,sueldo.calcularSueldo(pepe))
+}
