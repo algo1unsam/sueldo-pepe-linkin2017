@@ -1,8 +1,14 @@
+import persona.*
+
 object bonoPorcentual{
-	var porcentaje = 10
+	var porcentaje 
 	
 	method tipoBono(){
 		return porcentaje
+	}
+	
+	     method calcularNetoPorcentual(_porcentaje){
+		porcentaje=pepe.neto()*(_porcentaje/100)
 	}
 	
 }
